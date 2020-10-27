@@ -11,15 +11,15 @@ export default props =>{
                 <td className={todo.done ? 'makedAsDone': ''}>{todo.description}</td>
                 <td>
                     <IconButton
-                    style='success' icon='check'
+                    style='success' icon='check' hide={todo.done}
                     onClick={() => props.handleMarkAsDone(todo)}
                     />
                     <IconButton
-                    style='warning' icon='undo'
+                    style='warning' icon='undo' hide={!todo.done}
                     onClick={() => props.handleMarkAsPending(todo)}
                     />
                     <IconButton
-                    style = 'danger' icon='trash-o'
+                    style = 'danger' icon='trash-o' hide={!todo.done}
                     onClick={() => props.handleRemove(todo)}
                     />
                 </td>
@@ -33,7 +33,7 @@ export default props =>{
             <thead>
                 <tr>
                     <th>Descrição</th>
-                    <th>Ações</th>
+                    <th className='tableActions'>Ações</th>
                 </tr>
             </thead>
             <tbody>
